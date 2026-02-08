@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>San Valentín 💘</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #ffe6ea;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 30px;
+      padding: 0 15px;
+    }
+
+    button {
+      font-size: 1.3em;
+      padding: 15px 30px;
+      margin: 10px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    #si {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      background-color: #cccccc;
+      position: absolute;
+    }
+
+    img {
+      max-width: 80%;
+      border-radius: 20px;
+      margin-top: 25px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>¿QUIERES SER MI SAN VALENTÍN? 💖</h1>
+
+    <button id="si">SI 💘</button>
+    <button id="no">NO 😢</button>
+
+    <br>
+    <img id="foto" src="foto.jpg" alt="San Valentín">
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const siBtn = document.getElementById("si");
+    const foto = document.getElementById("foto");
+
+    function moverBoton() {
+      const x = Math.random() * (window.innerWidth - 120);
+      const y = Math.random() * (window.innerHeight - 120);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    noBtn.addEventListener("touchstart", moverBoton);
+    noBtn.addEventListener("mouseover", moverBoton);
+
+    siBtn.addEventListener("click", () => {
+      siBtn.style.display = "none";
+      noBtn.style.display = "none";
+      foto.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
